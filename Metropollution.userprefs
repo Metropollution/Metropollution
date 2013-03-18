@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\KeyboardCameraControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MouseEdgeCameraControl.js">
     <Files>
-      <File FileName="Assets\KeyboardCameraControl.cs" Line="102" Column="49" />
+      <File FileName="Assets\Scripts\KeyboardCameraControl.cs" Line="102" Column="73" />
+      <File FileName="Assets\Scripts\MouseEdgeCameraControl.js" Line="34" Column="95" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
