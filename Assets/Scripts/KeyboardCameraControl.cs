@@ -99,12 +99,12 @@ public class KeyboardCameraControl : MonoBehaviour
         if (horizontalTranslation.isActivated())
         {
             float translateX = Input.GetAxis(keyboardAxesNames[(int)horizontalTranslation.keyboardAxis]) * horizontalTranslation.sensitivity;
-            transform.Translate(translateX, 0, -translateX,Space.World);
+            transform.Translate(-translateX, 0, translateX,Space.World);
         }
         if (depthTranslation.isActivated())
         {
             float translateZ = Input.GetAxis(keyboardAxesNames[(int)depthTranslation.keyboardAxis]) * depthTranslation.sensitivity;
-            transform.Translate(translateZ, 0, translateZ,Space.World);
+            transform.Translate(-translateZ, 0, -translateZ,Space.World);
         }
  
  

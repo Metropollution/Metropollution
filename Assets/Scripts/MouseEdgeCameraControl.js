@@ -16,22 +16,22 @@ function Update()
 {
     if (Input.mousePosition.x > theScreenWidth - Boundary)
     {
-    	transform.Translate(speed * Time.deltaTime, 0, -(speed * Time.deltaTime),Space.World);
+    	transform.Translate(-(speed * Time.deltaTime), 0, (speed * Time.deltaTime),Space.World);
     }
  
     if (Input.mousePosition.x < 0 + Boundary)
     {
-    	transform.Translate(-(speed * Time.deltaTime), 0, speed * Time.deltaTime,Space.World);
+    	transform.Translate((speed * Time.deltaTime), 0, -(speed * Time.deltaTime),Space.World);
     }
  
     if (Input.mousePosition.y > theScreenHeight - Boundary)
     {
-    	transform.Translate(speed * Time.deltaTime, 0, speed * Time.deltaTime,Space.World);
+    	transform.Translate(-(speed * Time.deltaTime), 0, (speed * Time.deltaTime),Space.World);
     }
  
     if (Input.mousePosition.y < 0 + Boundary)
     {
-    	transform.Translate(-(speed * Time.deltaTime), 0, -(speed * Time.deltaTime),Space.World);
+    	transform.Translate((speed * Time.deltaTime), 0, (speed * Time.deltaTime),Space.World);
     }
  
 }
