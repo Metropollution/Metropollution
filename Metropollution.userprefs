@@ -1,9 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\KeyboardCameraControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/pollutionMeter.cs">
     <Files>
-      <File FileName="Assets\Scripts\KeyboardCameraControl.cs" Line="107" Column="50" />
-      <File FileName="Assets\Scripts\MouseEdgeCameraControl.js" Line="37" Column="2" />
+      <File FileName="Assets/pollutionMeter.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
