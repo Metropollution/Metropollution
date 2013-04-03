@@ -1,0 +1,125 @@
+fileFormatVersion: 2
+guid: 28dbcd249a41e3540b3d358f4a6c7abb
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: City1_Block_2:Box75
+    100002: City1_Block_2:Box76
+    100004: City1_Block_2:Box77
+    100006: City1_Block_2:Box78
+    100008: City1_Block_2:Box79
+    100010: City1_Block_2:Box80
+    100012: City1_Block_2:Box81
+    100014: City1_Block_2:Box82
+    100016: City1_Block_2:Box83
+    100018: City1_Block_2:Box84
+    100020: City1_Block_2:Box85
+    100022: City1_Block_2:Box86
+    100024: City1_Block_2:Line12
+    100026: //RootNode
+    400000: City1_Block_2:Box75
+    400002: City1_Block_2:Box76
+    400004: City1_Block_2:Box77
+    400006: City1_Block_2:Box78
+    400008: City1_Block_2:Box79
+    400010: City1_Block_2:Box80
+    400012: City1_Block_2:Box81
+    400014: City1_Block_2:Box82
+    400016: City1_Block_2:Box83
+    400018: City1_Block_2:Box84
+    400020: City1_Block_2:Box85
+    400022: City1_Block_2:Box86
+    400024: City1_Block_2:Line12
+    400026: //RootNode
+    2300000: City1_Block_2:Box75
+    2300002: City1_Block_2:Box76
+    2300004: City1_Block_2:Box77
+    2300006: City1_Block_2:Box78
+    2300008: City1_Block_2:Box79
+    2300010: City1_Block_2:Box80
+    2300012: City1_Block_2:Box81
+    2300014: City1_Block_2:Box82
+    2300016: City1_Block_2:Box83
+    2300018: City1_Block_2:Box84
+    2300020: City1_Block_2:Box85
+    2300022: City1_Block_2:Box86
+    2300024: City1_Block_2:Line12
+    3300000: City1_Block_2:Box75
+    3300002: City1_Block_2:Box76
+    3300004: City1_Block_2:Box77
+    3300006: City1_Block_2:Box78
+    3300008: City1_Block_2:Box79
+    3300010: City1_Block_2:Box80
+    3300012: City1_Block_2:Box81
+    3300014: City1_Block_2:Box82
+    3300016: City1_Block_2:Box83
+    3300018: City1_Block_2:Box84
+    3300020: City1_Block_2:Box85
+    3300022: City1_Block_2:Box86
+    3300024: City1_Block_2:Line12
+    4300000: City1_Block_2:Box75
+    4300002: City1_Block_2:Box77
+    4300004: City1_Block_2:Box86
+    4300006: City1_Block_2:Box85
+    4300008: City1_Block_2:Box84
+    4300010: City1_Block_2:Box83
+    4300012: City1_Block_2:Line12
+    4300014: City1_Block_2:Box82
+    4300016: City1_Block_2:Box81
+    4300018: City1_Block_2:Box79
+    4300020: City1_Block_2:Box78
+    4300022: City1_Block_2:Box76
+    4300024: City1_Block_2:Box80
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 
