@@ -163,5 +163,8 @@ pip-log.txt
 
 Library
 Temp
-.sln
-.userprefs
+*.sln
+*.userprefs
+*.pidb
+*.csproj
+*.unityproj
