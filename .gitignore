@@ -172,3 +172,5 @@ Temp
 *.csproj
 *.unityproj
 *.sln
+*.pidb
+*.userprefs
