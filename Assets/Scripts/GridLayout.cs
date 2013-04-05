@@ -4,27 +4,46 @@ using System.Collections;
 
 public class GridLayout : MonoBehaviour {
 	
-	public float board_size_x = 10;
-	public float board_size_z = 10;
+	private int board_size_x = 10;
+	private int board_size_z = 10;
+	
 	public Transform tile_prefab;
+	/*
+	GameObject[,] tileList;
+	GameObject currentTile;
+	*/
+	
+	GameObject grid;
 	
 	
 	void Start(){
-		GameObject grid = new GameObject();
-		grid.AddComponent("SelectGrid");	//Attaches Script to ParentGrid
+		/*Initialize 2D grid tracker with grid size
+		tileList = new GameObject[board_size_x,board_size_z];
+		
+		currentTile = new GameObject();
+		currentTile.AddComponent("NodeClick");
+		*/
+		grid = new GameObject();
+		grid.AddComponent("GuiBehavior"); //Attaches Script to ParentGrid
 		grid.layer = 8;
 		grid.name = "ParentGrid";
-		 for ( float x = 0; x < board_size_x; x++ ) 
+		 
+		for ( int x = 0; x < board_size_x; x++ ) 
 		{
-			for ( float z = 0; z < board_size_z; z++ ) 
+			for ( int z = 0; z < board_size_z; z++ ) 
 			{
 				Transform tiles = (Transform)Instantiate(tile_prefab, new Vector3(x,0,z),Quaternion.identity);
 				tiles.name = "GridTile " + x + z;
 				tiles.parent = grid.transform;
+				/*currentTile.setTransform(tiles);
+				tileList[x,z] = currentTile;*/				
 			}
 		}
+		
+
 	}
 }
+
 	
 	
 	/*
