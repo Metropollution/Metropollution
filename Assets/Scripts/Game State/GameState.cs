@@ -7,7 +7,7 @@ public class GameState : MonoBehaviour {
 	public int pollution;
 	public int population;
 	public BuildingStruct[,] grid;
-	public int gridSize;
+	public int gridSize = 100;
 	public int tick;
 	
 	private bool cashTick;
