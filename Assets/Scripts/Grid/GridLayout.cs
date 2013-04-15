@@ -4,14 +4,16 @@ using System.Collections;
 
 public class GridLayout : MonoBehaviour {
 	
-	private int board_size_x = 10;
-	private int board_size_z = 10;
+	private int board_size_x = 100;
+	private int board_size_z = 100;
+	
+	private NodeClick clickedNodes;
 	
 	public Transform tile_prefab;
-	/*
+	
 	GameObject[,] tileList;
 	GameObject currentTile;
-	*/
+	
 	
 	GameObject grid;
 	
@@ -23,6 +25,11 @@ public class GridLayout : MonoBehaviour {
 		currentTile = new GameObject();
 		currentTile.AddComponent("NodeClick");
 		*/
+		
+		
+		//Use NodeClick Class
+		clickedNodes = GameObject.FindGameObjectsWithTag("NodeClick").GetComponent<NodeClick>();
+		
 		grid = new GameObject();
 		grid.AddComponent("GuiBehavior"); //Attaches Script to ParentGrid
 		grid.layer = 8;
