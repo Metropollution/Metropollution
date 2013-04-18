@@ -11,20 +11,32 @@ public class BuildingStruct : MonoBehaviour {
 	public bool flag;
 	public Vector2 coordinates;
 	
-	public void Build(Vector2 coord) {
-		GameState.Instance.PlaceBuilding(this, coord);
-		coordinates = coord;
+	public bool Build(Vector2 coord) {
+		if(GameState.Instance.PlaceBuilding(this, coord)){
+			coordinates = coord;
+			return true;
+		} else{
+			return false;	
+		}
 	}
 	
+	public void Demolish() {
+		if(isConnected && flag){
+			GameState.Instance.population -= populationSupport;
+			GameState.Instance.pollution -= pollutionIndex;
+		}
+	}
 	// Update is called once per frame
 	void Update() {
 		if(isConnected && !flag){
 			GameState.Instance.population += populationSupport;
+			GameState.Instance.pollution += pollutionIndex;
 			flag = true;
 		}
 		
 		if(!isConnected && flag){
-			GameState.Instance.population -=populationSupport;
+			GameState.Instance.population -= populationSupport;
+			GameState.Instance.pollution -= pollutionIndex;
 			flag = false;
 		}
 	}

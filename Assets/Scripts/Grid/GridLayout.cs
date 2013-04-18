@@ -28,7 +28,7 @@ public class GridLayout : MonoBehaviour {
 		
 		
 		//Use NodeClick Class
-		clickedNodes = GameObject.FindGameObjectsWithTag("NodeClick").GetComponent<NodeClick>();
+		//clickedNodes = GameObject.FindGameObjectsWithTag("NodeClick").GetComponent<NodeClick>();
 		
 		grid = new GameObject();
 		grid.AddComponent("GuiBehavior"); //Attaches Script to ParentGrid

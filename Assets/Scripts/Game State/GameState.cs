@@ -6,8 +6,8 @@ public class GameState : MonoBehaviour {
 	public int cash;
 	public int pollution;
 	public int population;
-	public BuildingStruct[,] grid;
-	public int gridSize = 100;
+	public GameObject[,] grid = new GameObject[100,100];
+	public Transform[,] models = new Transform[100,100];
 	public int tick;
 	
 	private bool cashTick;
@@ -31,28 +31,47 @@ public class GameState : MonoBehaviour {
 		tick = 5;
 		
 		cashTick = true;
-		
-		grid = new BuildingStruct[gridSize,gridSize];
 	}
 	
 	public bool PlaceBuilding(BuildingStruct x, Vector2 coord) {
-		if(cash >= x.cost){
+		if(cash >= x.cost && grid[(int)coord.x,(int)coord.y] == null){
 			cash -= x.cost;
-			pollution += x.pollutionIndex;
-			grid[(int)coord.x,(int)coord.y] = x;
+			
+			GameObject newObj = new GameObject();
+			newObj.AddComponent(x.GetType());
+			grid[(int)coord.x,(int)coord.y] = newObj;
 			
 			print("Build successful");
 			
 			return true;
 		} else{
-			print("Insufficient Cash");
+			print("Unable to build");
 			
 			return false;
 		}
 	}
 	
+	public void PlaceModel(Transform model){
+		Transform newModel = (Transform)Instantiate(model);
+		
+		newModel.gameObject.AddComponent<DestroyBuilding>();
+		Vector2 index = GridSelect.toArray(model.transform.position);
+		models[(int)index.x,(int)index.y] = newModel;
+	}
+	
+	public void RemoveModel(Vector2 index){
+		print (models[(int)index.x,(int)index.y]);
+		if(models[(int)index.x,(int)index.y] != null){
+			Object.Destroy(models[(int)index.x,(int)index.y].gameObject);
+			
+			BuildingStruct bs = grid[(int)index.x,(int)index.y].GetComponent<BuildingStruct>();
+			bs.Demolish();
+			grid[(int)index.x,(int)index.y] = null;
+		}
+	}
+	
 	public int cashFlow () { //contains formula for how much money is generated
-		return population*20;
+		return population*1;
 	}
 	
 	// Update is called once per frame

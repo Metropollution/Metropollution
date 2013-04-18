@@ -3,12 +3,11 @@ using System.Collections;
 
 public class ObjectManager : MonoBehaviour {
 
-	public GameObject[] worldObjects;
-	private Building placedBuilding;
-	
+	public Transform[] worldObjects;
+	private Building placeBuilding;
 	
 	void Start () {
-		placedBuilding = GetComponent<Building>();
+		placeBuilding = GetComponent<Building>();
 	}
 	
 	// Update is called once per frame
@@ -23,7 +22,7 @@ public class ObjectManager : MonoBehaviour {
 		{
 			if(GUI.Button(new Rect(Screen.width/20, Screen.height/15 + Screen.height/12 * i, 100, 30), worldObjects[i].name ))	
 			{
-				placedBuilding.SetItem(worldObjects[i]);
+				placeBuilding.SetItem(worldObjects[i]);
 			}
 		}
 	}
