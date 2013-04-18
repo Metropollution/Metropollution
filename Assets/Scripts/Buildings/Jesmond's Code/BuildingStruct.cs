@@ -8,7 +8,8 @@ public class BuildingStruct : MonoBehaviour {
 	public int populationSupport;
 	public int pollutionIndex;
 	public bool isConnected;
-	public bool flag;
+	public bool isBuilt;
+	private bool flag;
 	public Vector2 coordinates;
 	
 	public bool Build(Vector2 coord) {
@@ -28,13 +29,13 @@ public class BuildingStruct : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update() {
-		if(isConnected && !flag){
+		if(isBuilt && isConnected && !flag){
 			GameState.Instance.population += populationSupport;
 			GameState.Instance.pollution += pollutionIndex;
 			flag = true;
 		}
 		
-		if(!isConnected && flag){
+		if(isBuilt && !isConnected && flag){
 			GameState.Instance.population -= populationSupport;
 			GameState.Instance.pollution -= pollutionIndex;
 			flag = false;

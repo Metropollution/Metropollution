@@ -7,7 +7,6 @@ public class GameState : MonoBehaviour {
 	public int pollution;
 	public int population;
 	public GameObject[,] grid = new GameObject[100,100];
-	public Transform[,] models = new Transform[100,100];
 	public int tick;
 	
 	private bool cashTick;
@@ -37,8 +36,12 @@ public class GameState : MonoBehaviour {
 		if(cash >= x.cost && grid[(int)coord.x,(int)coord.y] == null){
 			cash -= x.cost;
 			
-			GameObject newObj = new GameObject();
-			newObj.AddComponent(x.GetType());
+			GameObject newObj = (GameObject)Instantiate(x.gameObject);
+			newObj.AddComponent<DestroyBuilding>();
+			
+			BuildingStruct bs = newObj.GetComponent<BuildingStruct>();
+			bs.isBuilt = true;
+			
 			grid[(int)coord.x,(int)coord.y] = newObj;
 			
 			print("Build successful");
@@ -51,22 +54,13 @@ public class GameState : MonoBehaviour {
 		}
 	}
 	
-	public void PlaceModel(Transform model){
-		Transform newModel = (Transform)Instantiate(model);
-		
-		newModel.gameObject.AddComponent<DestroyBuilding>();
-		Vector2 index = GridSelect.toArray(model.transform.position);
-		models[(int)index.x,(int)index.y] = newModel;
-	}
+	//public void PlaceModel(Transform model){
 	
-	public void RemoveModel(Vector2 index){
-		print (models[(int)index.x,(int)index.y]);
-		if(models[(int)index.x,(int)index.y] != null){
-			Object.Destroy(models[(int)index.x,(int)index.y].gameObject);
-			
+	public void RemoveBuilding(Vector2 index){
+		if(grid[(int)index.x,(int)index.y] != null){
 			BuildingStruct bs = grid[(int)index.x,(int)index.y].GetComponent<BuildingStruct>();
 			bs.Demolish();
-			grid[(int)index.x,(int)index.y] = null;
+			Object.Destroy(grid[(int)index.x,(int)index.y]);
 		}
 	}
 	

@@ -25,7 +25,6 @@ public class Building : MonoBehaviour {
 				if(Input.GetMouseButtonDown(0))
 				{
 					if(bs.Build(GridSelect.toArray(currentCoord))){
-						GameState.Instance.PlaceModel(currentBuilding);
 						Object.Destroy(currentBuilding.gameObject);
 					}
 				}

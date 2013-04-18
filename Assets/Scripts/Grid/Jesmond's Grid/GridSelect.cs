@@ -25,7 +25,7 @@ public class GridSelect : MonoBehaviour {
 		Building.currentCoord = new Vector3(transform.position.x,transform.position.y,transform.position.z);
 		
 		if(Input.GetMouseButtonDown(1)){
-			GameState.Instance.RemoveModel(GridSelect.toArray(transform.position));
+			GameState.Instance.RemoveBuilding(GridSelect.toArray(transform.position));
 		}
 	}
 	

@@ -9,9 +9,4 @@ public class BasicHouse : BuildingStruct {
 		populationSupport = 1;
 		pollutionIndex = 10;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

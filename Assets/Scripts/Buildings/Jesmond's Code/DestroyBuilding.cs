@@ -15,7 +15,7 @@ public class DestroyBuilding : MonoBehaviour {
 	
 	void onMouseOver (){
 		if(Input.GetMouseButtonDown(1)){
-			GameState.Instance.RemoveModel(GridSelect.toArray(transform.position));
+			GameState.Instance.RemoveBuilding(GridSelect.toArray(transform.position));
 		}
 	}
 }
