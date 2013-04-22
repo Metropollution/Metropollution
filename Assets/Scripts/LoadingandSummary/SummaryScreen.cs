@@ -15,7 +15,7 @@ public class SummaryScreen : MonoBehaviour {
 		gameState = new GameObject();
 		InitializeVariables();
 		setText();
-		show = true;
+		//show = true;
 	}
 	
 	// Update is called once per frame
