@@ -4,7 +4,6 @@ using System.Collections;
 public class SummaryScreen : MonoBehaviour {
 	
 	static bool show = false;
-	GameObject gameState;
 	GUILayout displayLayout;
 	GUIText cash;
 	GUIText population;
@@ -12,7 +11,6 @@ public class SummaryScreen : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameState = new GameObject();
 		InitializeVariables();
 		setText();
 		//show = true;
@@ -26,7 +24,6 @@ public class SummaryScreen : MonoBehaviour {
 	}
 	
 	void InitializeVariables(){
-		gameState = GetComponent<GameState>();
 		show = false;  
 		cash = new GUIText();
 		population = new GUIText();
@@ -34,9 +31,9 @@ public class SummaryScreen : MonoBehaviour {
 	}
 	
 	void setText(){
-		cash.text = GameState.MyInstance.cash.ToString();
-		population.text = GameState.MyInstance.pollution.ToString();
-		pollution.text = GameState.MyInstance.pollution.ToString();
+		cash.text = GameState.Instance.cash.ToString();
+		population.text = GameState.Instance.population.ToString();
+		pollution.text = GameState.Instance.pollution.ToString();
 	}
 	
 	
