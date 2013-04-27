@@ -9,8 +9,6 @@ public class Building : MonoBehaviour {
 	public static Transform currentBuilding;
 	public static Vector3 currentCoord;
 	
-	private PlaceableObject lastSelection;
-	
 	void Start () {
 	
 	}

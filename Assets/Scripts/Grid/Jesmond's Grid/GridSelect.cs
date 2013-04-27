@@ -18,7 +18,7 @@ public class GridSelect : MonoBehaviour {
 	
 	// Use this to convert the tile coordinates into a array index between [1,99]
 	public static Vector2 toArray (Vector3 coord){
-		return new Vector2(coord.x/20, coord.z/20);
+		return new Vector2(coord.x/40, coord.z/40);
 	}
 	
 	void OnMouseOver() {
