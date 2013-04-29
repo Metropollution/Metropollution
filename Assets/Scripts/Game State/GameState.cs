@@ -86,8 +86,11 @@ public class GameState : MonoBehaviour {
 	public void RemoveBuilding(Vector2 index){
 		if(grid[(int)index.x,(int)index.y] != null){
 			BuildingStruct bs = grid[(int)index.x,(int)index.y].GetComponent<BuildingStruct>();
-			bs.Demolish();
-			Object.Destroy(grid[(int)index.x,(int)index.y]);
+
+			if(bs.Demolish()){
+				tempBuildStack.Remove(grid[(int)index.x,(int)index.y]);
+				Destroy(grid[(int)index.x,(int)index.y]);
+			}
 		}
 	}
 	

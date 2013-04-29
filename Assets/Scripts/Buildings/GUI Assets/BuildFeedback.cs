@@ -41,7 +41,7 @@ public class BuildFeedback : MonoBehaviour {
 			countdown+=1.0f;
 		}
 
-		if(countdown > 40){
+		if(countdown > 50){
 			Destroy(this.gameObject);
 		}
 	}

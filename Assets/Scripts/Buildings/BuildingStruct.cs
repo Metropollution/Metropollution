@@ -26,7 +26,7 @@ public class BuildingStruct : MonoBehaviour {
 		}
 	}
 	
-	public void Demolish(){
+	public bool Demolish(){
 		if(isBuilt){
 			if(GameState.Instance.cash >= cost/2){
 				GameState.Instance.cash -= cost/2;
@@ -39,12 +39,14 @@ public class BuildingStruct : MonoBehaviour {
 				feedback.GetComponent<BuildFeedback>().moneyActivated = true;
 			} else{
 				GameObject feedback = (GameObject)Instantiate(GameObject.FindGameObjectWithTag("Feedback"),
-					x.gameObject.transform.position,
+					transform.position,
 					Quaternion.identity);
 
 				feedback.GetComponent<BuildFeedback>().error = true;
 
 				print ("Unable to demolish. Insufficient cash");
+
+				return false;
 			}
 		} else{
 			GameState.Instance.cash += cost;
@@ -55,6 +57,9 @@ public class BuildingStruct : MonoBehaviour {
 
 			feedback.GetComponent<BuildFeedback>().money = cost;
 			feedback.GetComponent<BuildFeedback>().moneyActivated = true;
+
+			Transform grid = GridSpawn.GridAt(GridSelect.toArray(transform.position));
+			grid.gameObject.GetComponent<GridSelect>().PalateSwap();
 		}
 
 		if(isConnected && isActivated){
@@ -63,6 +68,8 @@ public class BuildingStruct : MonoBehaviour {
 		}
 
 		SpecificDemolish();
+
+		return true;
 	}
 
 	protected virtual void SpecificDemolish(){
