@@ -38,6 +38,12 @@ public class BuildingStruct : MonoBehaviour {
 				feedback.GetComponent<BuildFeedback>().money = -cost/2;
 				feedback.GetComponent<BuildFeedback>().moneyActivated = true;
 			} else{
+				GameObject feedback = (GameObject)Instantiate(GameObject.FindGameObjectWithTag("Feedback"),
+					x.gameObject.transform.position,
+					Quaternion.identity);
+
+				feedback.GetComponent<BuildFeedback>().error = true;
+
 				print ("Unable to demolish. Insufficient cash");
 			}
 		} else{
