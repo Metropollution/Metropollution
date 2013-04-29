@@ -18,11 +18,7 @@ public class PowerStationStruct : BuildingStruct {
 		}
 	}
 	
-	public override void Demolish() {
-		if(isConnected && isActivated){
-			GameState.Instance.population -= populationSupport;
-			GameState.Instance.pollution -= pollutionIndex;
-		}
+	protected override void SpecificDemolish() {
 		setConnection(GridSelect.toArray(transform.position), false);
 	}
 	

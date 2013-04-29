@@ -4,10 +4,11 @@ using System.Collections;
 public class SolarPlant : PowerStationStruct {
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		cost = 20;
 		populationSupport = 0;
 		pollutionIndex = 1;
+		title = "Solar Plant";
 		//houseSupport = 30;
 	}
 }

@@ -2,12 +2,13 @@ using UnityEngine;
 using System.Collections;
 
 public class RoadStruct : BuildingStruct {
+	
 	public override bool Build(Vector2 coord) {
 		if(GameState.Instance.PlaceBuilding(this, coord)){
 			BuildingStruct bs = GameState.Instance.grid[(int)coord.x,(int)coord.y].GetComponent<BuildingStruct>();
 			bs.coordinates = coord;
 			
-			bs.isConnected = connections(coord);
+			bs.isConnected = Connections(coord);
 			setConnection(coord, bs.isConnected);
 			
 			return true;
@@ -16,12 +17,7 @@ public class RoadStruct : BuildingStruct {
 		}
 	}
 	
-	public override void Demolish() {
-		if(isConnected && isActivated){
-			GameState.Instance.population -= populationSupport;
-			GameState.Instance.pollution -= pollutionIndex;
-		}
-		
+	protected override void SpecificDemolish() {
 		setConnection(GridSelect.toArray(transform.position), false);
 	}
 	

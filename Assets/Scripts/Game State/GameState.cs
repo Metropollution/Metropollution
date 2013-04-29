@@ -9,7 +9,8 @@ public class GameState : MonoBehaviour {
 	public int turnsPassed = -1;
 	public GameObject[,] grid = new GameObject[50,50];
 	public float tick;
-	
+
+	private ArrayList tempBuildStack = new ArrayList();
 	private bool cashTick;
 	
 	public static GameState MyInstance;
@@ -34,8 +35,15 @@ public class GameState : MonoBehaviour {
 	}
 	
 	public bool PlaceBuilding(BuildingStruct x, Vector2 coord) {
-		if(!(x is RoadStruct) && isWaterArray(coord)){
+		if(!(x is RoadStruct) && IsWaterArray(coord)){
 			print ("Cannot build on water");
+
+			GameObject feedback = (GameObject)Instantiate(GameObject.FindGameObjectWithTag("Feedback"),
+				x.gameObject.transform.position,
+				Quaternion.identity);
+
+			feedback.GetComponent<BuildFeedback>().error = true;
+
 			return false;
 		}
 		
@@ -43,19 +51,32 @@ public class GameState : MonoBehaviour {
 			cash -= x.cost;
 			
 			GameObject newObj = (GameObject)Instantiate(x.gameObject);
-			newObj.AddComponent<DestroyBuilding>();
 			
 			BuildingStruct bs = newObj.GetComponent<BuildingStruct>();
-			bs.isBuilt = true;
+
+			if(tick == 0){
+				tempBuildStack.Add(newObj);
+
+				Transform g = GridSpawn.GridAt(GridSelect.toArray(newObj.transform.position));
+				g.gameObject.GetComponent<GridSelect>().PalateSwap();
+			} else{
+				bs.CompleteBuild();
+			}
 			
 			grid[(int)coord.x,(int)coord.y] = newObj;
 			
 			print("Build successful");
-			
+
 			return true;
 		} else{
 			print("Unable to build");
-			
+
+			GameObject feedback = (GameObject)Instantiate(GameObject.FindGameObjectWithTag("Feedback"),
+				x.gameObject.transform.position,
+				Quaternion.identity);
+
+			feedback.GetComponent<BuildFeedback>().error = true;
+
 			return false;
 		}
 	}
@@ -70,15 +91,15 @@ public class GameState : MonoBehaviour {
 		}
 	}
 	
-	public int cashFlow () { //contains formula for how much money is generated
+	public int CashFlow () { //contains formula for how much money is generated
 		return population*1;
 	}
 	
-	public bool isWaterArray (Vector2 index){
-		return isWater(new Vector3(index.x*40, 0, index.y*40));
+	public bool IsWaterArray (Vector2 index){
+		return IsWater(new Vector3(index.x*40, 0, index.y*40));
 	}
 	
-	public bool isWater (Vector3 coord){
+	public bool IsWater (Vector3 coord){
 		Vector3 TS = new Vector3(2000,600,2000); // terrain size
 		Vector2 AS = new Vector2(30,30); // control texture size
 		 
@@ -104,12 +125,22 @@ public class GameState : MonoBehaviour {
 	void Update () {
 		if(tick != 0 && Time.time%tick < 0.1) { // condition for time interval
 			if(cashTick){
-				cash += cashFlow();
+				cash += CashFlow();
 				turnsPassed++;
 				cashTick = false;
 			}
 		} else{
 			cashTick = true;
+		}
+
+		if(tempBuildStack.Count > 0 && tick != 0){
+			foreach(GameObject i in tempBuildStack){
+				i.GetComponent<BuildingStruct>().CompleteBuild();
+
+				Transform grid = GridSpawn.GridAt(GridSelect.toArray(i.transform.position));
+				grid.gameObject.GetComponent<GridSelect>().PalateSwap();
+			}
+			tempBuildStack.Clear();
 		}
 	}
 }

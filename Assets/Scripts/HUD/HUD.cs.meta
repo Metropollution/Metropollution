@@ -2,7 +2,13 @@ fileFormatVersion: 2
 guid: cdaf3216fbe1aa5458ac8088c31a6aec
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - play: {fileID: 2800000, guid: 02de49a2d5817f241915056d69b2a6a0, type: 3}
+  - pause: {fileID: 2800000, guid: a70bff42dc11b6742b4c20edcc0f3de8, type: 3}
+  - back: {fileID: 2800000, guid: 685fa78fba0ce6a479d9cd5489693d8d, type: 3}
+  - forward: {fileID: 2800000, guid: b08809060d243024d8d43f974e76c778, type: 3}
+  - fastback: {fileID: 2800000, guid: 40c3b4f3bcda8ac40bbfbb31080324dc, type: 3}
+  - fastforward: {fileID: 2800000, guid: c5d9b4fa09e93bc45967128faa06929c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

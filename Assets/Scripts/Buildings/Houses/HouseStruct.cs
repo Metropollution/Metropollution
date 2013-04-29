@@ -3,17 +3,7 @@ using System.Collections;
 
 public class HouseStruct : BuildingStruct {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	public override void Demolish() {
-		if(isConnected && isActivated){
-			GameState.Instance.population -= populationSupport;
-			GameState.Instance.pollution -= pollutionIndex;
-		}
-		
+	protected override void SpecificDemolish() {
 		if(powerSymbol)
 			Destroy(powerSymbol);
 	}
@@ -29,7 +19,7 @@ public class HouseStruct : BuildingStruct {
 			powerSymbol.transform.Rotate(new Vector3(10,10,0));
 			
 			if(powerSymbol == null)
-				print ("error, no lightning");
+				print ("error, no lightning symbol");
 		}
 		
 		if(isConnected && powerSymbol){

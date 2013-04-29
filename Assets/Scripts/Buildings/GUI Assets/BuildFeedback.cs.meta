@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 7b1bb2f1fc97345aca1f44c62b0cbd11
+guid: 07ae142a715da6942af64abe280144b7
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - bulldozer: {fileID: 2800000, guid: 2d92fbc934c812c43996e6088cf2259f, type: 3}
+  - cross: {fileID: 2800000, guid: c17cd81a78de9a249b12aed8428fad27, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

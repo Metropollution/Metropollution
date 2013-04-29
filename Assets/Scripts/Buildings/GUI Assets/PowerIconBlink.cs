@@ -18,9 +18,4 @@ public class PowerIconBlink : MonoBehaviour {
 		}
 		isOnScreen = !isOnScreen;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

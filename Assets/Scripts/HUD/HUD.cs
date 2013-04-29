@@ -37,7 +37,6 @@ public class HUD : MonoBehaviour {
 			if(GameState.Instance.tick == 0){
 				isPaused = true;
 			}
-			print (GameState.Instance.tick);
 		}
 		
 		if(GUI.Button(new Rect(Screen.width-155,140,32,32),back)){
@@ -50,29 +49,24 @@ public class HUD : MonoBehaviour {
 			if(GameState.Instance.tick == 0){
 				isPaused = true;
 			}
-			print (GameState.Instance.tick);
 		}
 		
 		if((GUI.Button(new Rect(Screen.width-89,140,32,32),forward)) && GameState.Instance.tick > 0.2){
 			GameState.Instance.tick /= 2;
-			print (GameState.Instance.tick);
 		}
 		if((GUI.Button(new Rect(Screen.width-56,140 ,32,32),fastforward)) && GameState.Instance.tick > 0.2){
 			GameState.Instance.tick /= 4;
-			print (GameState.Instance.tick);
 		}
 		
 		if(isPaused){
 			if(GUI.Button(new Rect(Screen.width-122,140,32,32),play)){
 				GameState.Instance.tick = 5;
 				isPaused = false;
-				print (GameState.Instance.tick);
 			}
 		} else{
 			if(GUI.Button(new Rect(Screen.width-122,140,32,32),pause)){
 				GameState.Instance.tick = 0;
 				isPaused = true;
-				print (GameState.Instance.tick);
 			}
 		}
 	}
