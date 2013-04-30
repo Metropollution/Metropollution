@@ -5,6 +5,7 @@ public class GridSpawn : MonoBehaviour {
 	
 	public Transform grid;
 	private static Transform[,] gridArray = new Transform[50,50];
+	public static Transform selected;
 
 	// Use this for initialization
 	void Start () {

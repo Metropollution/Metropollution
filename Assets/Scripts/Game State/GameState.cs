@@ -59,6 +59,7 @@ public class GameState : MonoBehaviour {
 
 				Transform g = GridSpawn.GridAt(GridSelect.toArray(newObj.transform.position));
 				g.gameObject.GetComponent<GridSelect>().PalateSwap();
+				g.gameObject.GetComponent<GridSelect>().SetTemp(true);
 			} else{
 				bs.CompleteBuild();
 			}
@@ -88,6 +89,7 @@ public class GameState : MonoBehaviour {
 			BuildingStruct bs = grid[(int)index.x,(int)index.y].GetComponent<BuildingStruct>();
 
 			if(bs.Demolish()){
+				GridSpawn.GridAt(index).GetComponent<GridSelect>().Deselect();
 				tempBuildStack.Remove(grid[(int)index.x,(int)index.y]);
 				Destroy(grid[(int)index.x,(int)index.y]);
 			}
@@ -141,6 +143,7 @@ public class GameState : MonoBehaviour {
 				i.GetComponent<BuildingStruct>().CompleteBuild();
 
 				Transform grid = GridSpawn.GridAt(GridSelect.toArray(i.transform.position));
+				grid.gameObject.GetComponent<GridSelect>().SetTemp(false);
 				grid.gameObject.GetComponent<GridSelect>().PalateSwap();
 			}
 			tempBuildStack.Clear();
