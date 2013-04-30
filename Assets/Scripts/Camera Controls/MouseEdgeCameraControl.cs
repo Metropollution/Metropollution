@@ -2,8 +2,8 @@ using UnityEngine;
 using System.Collections;
 
 public class MouseEdgeCameraControl : MonoBehaviour {
-	public int Boundary = 50; // distance from edge scrolling starts
-	public int speed = 5;
+	public int Boundary; // distance from edge scrolling starts
+	public int speed;
 	 
 	private int theScreenWidth;
 	private int theScreenHeight;
@@ -12,6 +12,10 @@ public class MouseEdgeCameraControl : MonoBehaviour {
 	{
 	    theScreenWidth = Screen.width;
 	    theScreenHeight = Screen.height;
+
+		speed = theScreenHeight/3;
+
+		Boundary = 20;
 	}
 	 
 	void Update() 
@@ -28,7 +32,7 @@ public class MouseEdgeCameraControl : MonoBehaviour {
 	 
 	    if (Input.mousePosition.y > theScreenHeight - Boundary)
 	    {
-	    	transform.Translate(-(speed * Time.deltaTime), 0, (speed * Time.deltaTime),Space.World);
+	    	transform.Translate(-(speed * Time.deltaTime), 0, -(speed * Time.deltaTime),Space.World);
 	    }
 	 
 	    if (Input.mousePosition.y < 0 + Boundary)

@@ -55,6 +55,11 @@ public class GridSelect : MonoBehaviour {
 		temp = flag;
 	}
 
+	public void SetToBlack() {
+		temp = false;
+		Deselect();
+	}
+
 	public void PalateSwap() {
 		if(!temp){
 			if(renderer.material.ToString().Equals("GridMatBlack (Instance) (UnityEngine.Material)")){

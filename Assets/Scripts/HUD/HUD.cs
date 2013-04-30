@@ -10,7 +10,7 @@ public class HUD : MonoBehaviour {
 	public Texture fastback;
 	public Texture fastforward;
 	
-	private bool isPaused = false;
+	private bool isPaused = true;
 	
 	private
 	

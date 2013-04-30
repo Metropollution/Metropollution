@@ -6,7 +6,7 @@ public class GameState : MonoBehaviour {
 	public int cash;
 	public int pollution;
 	public int population;
-	public int turnsPassed = -1;
+	public int turnsPassed;
 	public GameObject[,] grid = new GameObject[50,50];
 	public float tick;
 
@@ -29,7 +29,8 @@ public class GameState : MonoBehaviour {
 		cash = 2000;
 		pollution = 0;
 		population = 1;
-		tick = 5.0f;
+		tick = 0f;
+		turnsPassed = 0;
 		
 		cashTick = true;
 	}
@@ -89,7 +90,7 @@ public class GameState : MonoBehaviour {
 			BuildingStruct bs = grid[(int)index.x,(int)index.y].GetComponent<BuildingStruct>();
 
 			if(bs.Demolish()){
-				GridSpawn.GridAt(index).GetComponent<GridSelect>().Deselect();
+				GridSpawn.GridAt(index).GetComponent<GridSelect>().SetToBlack();
 				tempBuildStack.Remove(grid[(int)index.x,(int)index.y]);
 				Destroy(grid[(int)index.x,(int)index.y]);
 			}
