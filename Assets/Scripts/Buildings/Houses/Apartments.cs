@@ -8,7 +8,5 @@ public class Apartments : HouseStruct {
 		populationSupport = 20;
 		pollutionIndex = 30;
 		title = "Apartments";
-		
-		transform.Rotate(new Vector3(450,0,0));
 	}
 }
