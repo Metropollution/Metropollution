@@ -56,6 +56,7 @@ ModelImporter:
     2300028: City1_Block_1:Box133
     2300030: City1_Block_1:Box134
     2300032: City1_Block_1:Line16
+    2300034: //RootNode
     3300000: City1_Block_1:Box119
     3300002: City1_Block_1:Box120
     3300004: City1_Block_1:Box121
@@ -73,6 +74,7 @@ ModelImporter:
     3300028: City1_Block_1:Box133
     3300030: City1_Block_1:Box134
     3300032: City1_Block_1:Line16
+    3300034: //RootNode
     4300000: City1_Block_1:Line16
     4300002: City1_Block_1:Box122
     4300004: City1_Block_1:Box134
