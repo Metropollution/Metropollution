@@ -8,7 +8,7 @@ public class WaterTower : PowerStationStruct {
 		cost = 15;
 		populationSupport = 0;
 		pollutionIndex = 10;
-		title = "Solar Plant";
+		title = "Water Tower";
 		//houseSupport = 30;
 	}
 }

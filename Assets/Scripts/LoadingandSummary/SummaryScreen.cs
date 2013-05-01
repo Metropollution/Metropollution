@@ -10,11 +10,11 @@ public class SummaryScreen : MonoBehaviour {
 	public GUIStyle customStyle;
 	public GUIStyle topStyle;
 	
-	void setBoolTrue(){
+	public void setBoolTrue(){
 		show = true;
 	}
 	
-	void setBoolFalse(){
+	public void setBoolFalse(){
 		show = false;	
 	}
 	

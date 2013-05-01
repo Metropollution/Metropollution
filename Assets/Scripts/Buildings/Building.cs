@@ -67,9 +67,10 @@ public class Building : MonoBehaviour {
 	public void SetItem(Transform worldObj){
 		isBuilding = true;
 		currentBuilding = ((Transform) Instantiate(worldObj));
-		if(currentBuilding.GetComponent<Apartments>()){
+		if(currentBuilding.GetComponent<Apartments>() || currentBuilding.GetComponent<WaterTower>()){
 			currentBuilding.transform.Rotate(new Vector3(270,0,0));
 		}
+		
 		bs = currentBuilding.GetComponent<BuildingStruct>();
 	}
 }

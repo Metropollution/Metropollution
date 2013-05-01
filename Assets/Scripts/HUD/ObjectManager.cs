@@ -51,24 +51,26 @@ public class ObjectManager : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		if(Building.isBuilding || Building.isDemolishing){
-			if(GUI.Button(new Rect(25,25,100,30),"Cancel")){
-				Building.deactivate();
+		if(!GameState.Instance.gameEnd){
+			if(Building.isBuilding || Building.isDemolishing){
+				if(GUI.Button(new Rect(25,25,100,30),"Cancel")){
+					Building.deactivate();
+				}
+			} else{
+				if(GUI.Button(new Rect(25,25,100,30),"Build")){
+					buildMenu.topMenu = true;
+				}
+	
+				if(GUI.Button(new Rect(25,65,100,30),"Demolish")){
+					CollapseSubMenu();
+					Building.deactivate();
+					Building.isDemolishing = true;
+				}
 			}
-		} else{
-			if(GUI.Button(new Rect(25,25,100,30),"Build")){
-				buildMenu.topMenu = true;
-			}
-
-			if(GUI.Button(new Rect(25,65,100,30),"Demolish")){
+	
+			if(Input.GetMouseButtonDown(1)){
 				CollapseSubMenu();
-				Building.deactivate();
-				Building.isDemolishing = true;
 			}
-		}
-
-		if(Input.GetMouseButtonDown(1)){
-			CollapseSubMenu();
 		}
 	}
 

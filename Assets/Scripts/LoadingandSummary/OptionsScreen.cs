@@ -16,11 +16,10 @@ public class OptionsScreen : MonoBehaviour {
 			//Need to add loading screen on switch
 			if(!goal){
 				if(GUI.Button(new Rect(Screen.width/2-128/2,15,128,64),"Start Game")){
-					goal = true;
-					/*
+					//goal = true;
 					loading = true;
 					StartCoroutine("LoadMainLevel");
-					*/
+
 				}
 				
 				else if (GUI.Button(new Rect(Screen.width/2-128/2,90,128,64),"Load Game")){
@@ -34,6 +33,7 @@ public class OptionsScreen : MonoBehaviour {
 					Application.Quit();
 				}
 			} else{
+				/*
 				customStyle2.fontStyle = FontStyle.Bold;
 				customStyle2.fontSize = 24;
 				customStyle2.alignment = TextAnchor.UpperCenter;
@@ -46,13 +46,13 @@ public class OptionsScreen : MonoBehaviour {
 				customStyle2.fontStyle = FontStyle.Normal;
 				customStyle2.fontSize = 18;
 				GUI.Label(new Rect(Screen.width/2-180,Screen.height/2-100, 400, 50),"Number of Turns: ",customStyle2);
-				string turns = GUI.TextField(new Rect(Screen.width/2-10,Screen.height/2-99,190,20),"1000");
+				string turns = GUI.TextField(new Rect(Screen.width/2-10,Screen.height/2-99,190,20),"",10);
 				GUI.Label(new Rect(Screen.width/2-180,Screen.height/2-70, 400, 50),"Desired Population: ",customStyle2);
-				string cash = GUI.TextField(new Rect(Screen.width/2-10,Screen.height/2-69,190,20),"1000");
+				string cash = GUI.TextField(new Rect(Screen.width/2-10,Screen.height/2-69,190,20),"",10);
 				GUI.Label(new Rect(Screen.width/2-180,Screen.height/2-40, 400, 50),"Desired Income: ",customStyle2);
-				string pop = GUI.TextField(new Rect(Screen.width/2-10,Screen.height/2-39,190,20),"1000");
+				string pop = GUI.TextField(new Rect(Screen.width/2-10,Screen.height/2-39,190,20),"",10);
 				GUI.Label(new Rect(Screen.width/2-180,Screen.height/2-10, 400, 50),"Pollution Limit: ",customStyle2);
-				string poll = GUI.TextField(new Rect(Screen.width/2-10,Screen.height/2-9,190,20),"1000");
+				string poll = GUI.TextField(new Rect(Screen.width/2-10,Screen.height/2-9,190,20),"",10);
 
 				if(GUI.Button(new Rect(Screen.width/2-110,Screen.height/2+40,100,30),"Start")){
 					int t;
@@ -82,12 +82,15 @@ public class OptionsScreen : MonoBehaviour {
 
 						loading = true;
 						StartCoroutine("LoadMainLevel");
+					} else{
+						goal = false;
 					}
 				}
 
 				if(GUI.Button(new Rect(Screen.width/2+10,Screen.height/2+40,100,30),"Cancel")){
 					goal = false;
 				}
+				*/
 			}
 		} else{
 			customStyle.normal.background = GUI.skin.box.normal.background;

@@ -15,6 +15,8 @@ public class GameState : MonoBehaviour {
 	public int goalPoll;
 	public int goalTurns;
 
+	public bool gameEnd = false;
+
 	private ArrayList tempBuildStack = new ArrayList();
 	private bool cashTick;
 	
@@ -47,7 +49,19 @@ public class GameState : MonoBehaviour {
 	}
 	
 	public bool PlaceBuilding(BuildingStruct x, Vector2 coord) {
-		if(!(x is RoadStruct) && IsWaterArray(coord)){
+		if(x is WaterTower && !IsWaterArray(coord)){
+			print ("Must place on water");
+
+			GameObject feedback = (GameObject)Instantiate(GameObject.FindGameObjectWithTag("Feedback"),
+				x.gameObject.transform.position,
+				Quaternion.identity);
+
+			feedback.GetComponent<BuildFeedback>().error = true;
+
+			return false;
+		}
+
+		if(!(x is RoadStruct || x is WaterTower)&& IsWaterArray(coord)){
 			print ("Cannot build on water");
 
 			GameObject feedback = (GameObject)Instantiate(GameObject.FindGameObjectWithTag("Feedback"),
@@ -140,6 +154,12 @@ public class GameState : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(turnsPassed == 1000){
+			tick = 0;
+			gameEnd = true;
+			GetComponent<SummaryScreen>().setBoolTrue();
+		}
+
 		if(tick != 0 && Time.time%tick < 0.1) { // condition for time interval
 			if(cashTick){
 				cash += CashFlow();
