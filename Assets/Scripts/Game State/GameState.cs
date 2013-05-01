@@ -10,10 +10,16 @@ public class GameState : MonoBehaviour {
 	public GameObject[,] grid = new GameObject[50,50];
 	public float tick;
 
+	public int goalCash;
+	public int goalPop;
+	public int goalPoll;
+	public int goalTurns;
+
 	private ArrayList tempBuildStack = new ArrayList();
 	private bool cashTick;
 	
 	public static GameState MyInstance;
+
 	public static GameState Instance {
 		get {
 			if (MyInstance == null) {
@@ -33,6 +39,11 @@ public class GameState : MonoBehaviour {
 		turnsPassed = 0;
 		
 		cashTick = true;
+
+		goalTurns = PlayerPrefs.GetInt("turns");
+		goalCash = PlayerPrefs.GetInt("cash");
+		goalPop = PlayerPrefs.GetInt("population");
+		goalPoll = PlayerPrefs.GetInt("pollution");
 	}
 	
 	public bool PlaceBuilding(BuildingStruct x, Vector2 coord) {

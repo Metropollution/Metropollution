@@ -23,6 +23,10 @@ public class ObjectManager : MonoBehaviour {
 			if(i.GetComponent<HouseStruct>()){
 				buildingObjects.Add(i);
 			}
+
+			if(i.GetComponent<Apartments>()){
+				i.Rotate(new Vector3(450,0,0));
+			}
 		}
 
 		buildMenu = GetComponent<SubMenu>();
