@@ -44,9 +44,9 @@ public class SummaryScreen : MonoBehaviour {
 				GUILayout.Box("Real World Statistics", topStyle);
 			GUILayout.EndArea();
 			GUILayout.BeginArea(new Rect(0,75,Screen.width/2,Screen.height));
-				GUILayout.Box("Regional Pollution: One" + "\n" , customStyle);
-				GUILayout.Box("Regional Economy: Bunches" +"\n", customStyle);
-				GUILayout.Box("Regional Population: 9000" + "\n", customStyle);
+				GUILayout.Box("Regional Pollution: 500" + "\n" , customStyle);
+				GUILayout.Box("Regional Economy: 9000" +"\n", customStyle);
+				GUILayout.Box("Regional Population: 200" + "\n", customStyle);
 			GUILayout.EndArea();
 		
 			//Right Side Display

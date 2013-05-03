@@ -12,15 +12,15 @@ public class OptionsScreen : MonoBehaviour {
 	public GUIStyle customStyle2;
 
 	private string turns = "100";
-	private string cash = "50";
-	private string pop = "1000";
-	private string poll = "200";
+	private string cash = "9000";
+	private string pop = "200";
+	private string poll = "500";
 
 	void Start () {
 		turns = "100";
-		cash = "50";
-		pop = "1000";
-		poll = "200";
+		cash = "9000";
+		pop = "200";
+		poll = "500";
 	}
 
 	void OnGUI () {
