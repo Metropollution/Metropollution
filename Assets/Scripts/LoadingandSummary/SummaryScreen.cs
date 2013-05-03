@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SummaryScreen : MonoBehaviour {
 	
+	public string level = "StartUpScene";
 	static bool show = false;
 	string cash = "";
 	string population = "";
@@ -16,6 +17,10 @@ public class SummaryScreen : MonoBehaviour {
 	
 	public void setBoolFalse(){
 		show = false;	
+	}
+	
+	void LoadStartScreen(){
+		Application.LoadLevel(level);	
 	}
 	
 	void OnGUI(){
@@ -57,6 +62,12 @@ public class SummaryScreen : MonoBehaviour {
 				GUILayout.Box("Pollution: " + pollution + "\n",customStyle);
 				GUILayout.Box("Economy: " + cash + "\n",customStyle);
 				GUILayout.Box("Population: " + population + "\n",customStyle);
+			GUILayout.EndArea();
+			
+			GUILayout.BeginArea(new Rect(Screen.width/2 - 90, Screen.height/2 + 150,200,200));
+				if(GUILayout.Button("Return to Title Screen")){
+					StartCoroutine("LoadStartScreen");
+				}
 			GUILayout.EndArea();
 			
 		}
