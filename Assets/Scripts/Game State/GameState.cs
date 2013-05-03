@@ -38,7 +38,7 @@ public class GameState : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		MyInstance = this;
-		cash = 2000;
+		cash = 100;
 		pollution = 0;
 		population = 1;
 		tick = 0f;

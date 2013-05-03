@@ -81,12 +81,12 @@ public class SubMenu : MonoBehaviour {
 					Vector3 mp = Input.mousePosition;
 
 					if(r.Contains(new Vector3(mp.x,Screen.height-mp.y,mp.z))){
-						GUI.Box(new Rect(245,25,110,90),"");
+						GUI.Box(new Rect(245,25,115,90),"");
 						GUI.Label(new Rect(250,30,100,20),bs.title,customStyle);
-						GUI.Label(new Rect(250,50,100,20),"Cost: "+bs.cost);
+							GUI.Label(new Rect(250,50,100,20),"Cost: "+bs.cost);
 						if(bs is PowerStationStruct){
 							PowerStationStruct pss = (PowerStationStruct)bs;
-							GUI.Label(new Rect(250,70,100,20),"Power Output: "+pss.houseSupport);
+							GUI.Label(new Rect(250,70,120,20),"Power Output: "+pss.houseSupport);
 						}else{
 							GUI.Label(new Rect(250,70,100,20),"Population: "+bs.populationSupport);
 						}

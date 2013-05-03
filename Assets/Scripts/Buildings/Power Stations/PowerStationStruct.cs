@@ -13,7 +13,6 @@ public class PowerStationStruct : BuildingStruct {
 			setConnection(coord, bs.isConnected);
 
 			GameState.Instance.powerOutput += houseSupport;
-			print (GameState.Instance.powerOutput);
 			return true;
 		} else{
 			return false;	
