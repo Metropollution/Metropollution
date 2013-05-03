@@ -44,7 +44,7 @@ public class RoadStruct : BuildingStruct {
 				neighbour.GetComponent<BuildingStruct>().isConnected = conn;
 			}
 		}
-		
+
 		if(coord.y < 49){
 			neighbour = GameState.Instance.grid[(int)coord.x,(int)coord.y+1];
 			if(neighbour){

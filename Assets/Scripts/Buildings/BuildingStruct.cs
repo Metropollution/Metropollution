@@ -15,15 +15,7 @@ public class BuildingStruct : MonoBehaviour {
 	public string title;
 	
 	public virtual bool Build(Vector2 coord) {
-		if(GameState.Instance.PlaceBuilding(this, coord)){
-			BuildingStruct bs = GameState.Instance.grid[(int)coord.x,(int)coord.y].GetComponent<BuildingStruct>();
-			bs.coordinates = coord;
-			
-			bs.isConnected = Connections(coord);
-			return true;
-		} else{
-			return false;
-		}
+		return false;
 	}
 	
 	public bool Demolish(){
@@ -65,6 +57,10 @@ public class BuildingStruct : MonoBehaviour {
 		if(isConnected && isActivated){
 			GameState.Instance.population -= populationSupport;
 			GameState.Instance.pollution -= pollutionIndex;
+
+			if(this is HouseStruct){
+				GameState.Instance.powerUsage--;
+			}
 		}
 
 		SpecificDemolish();
@@ -90,7 +86,7 @@ public class BuildingStruct : MonoBehaviour {
 		bool flag = false;
 		
 		GameObject neighbour;
-		
+
 		if(coord.x > 1){
 			neighbour = GameState.Instance.grid[(int)coord.x-1,(int)coord.y];
 			if(neighbour){

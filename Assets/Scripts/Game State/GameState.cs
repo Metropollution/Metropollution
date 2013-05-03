@@ -15,9 +15,13 @@ public class GameState : MonoBehaviour {
 	public int goalPoll;
 	public int goalTurns;
 
+	public int powerUsage;
+	public int powerOutput;
+
 	public bool gameEnd = false;
 
 	private ArrayList tempBuildStack = new ArrayList();
+	private ArrayList powerStack = new ArrayList();
 	private bool cashTick;
 	
 	public static GameState MyInstance;
@@ -89,7 +93,11 @@ public class GameState : MonoBehaviour {
 			} else{
 				bs.CompleteBuild();
 			}
-			
+
+			if(bs is PowerStationStruct){
+				powerStack.Add(newObj);
+			}
+
 			grid[(int)coord.x,(int)coord.y] = newObj;
 			
 			print("Build successful");
@@ -115,6 +123,18 @@ public class GameState : MonoBehaviour {
 			BuildingStruct bs = grid[(int)index.x,(int)index.y].GetComponent<BuildingStruct>();
 
 			if(bs.Demolish()){
+				if(bs is PowerStationStruct){
+					powerStack.Remove(grid[(int)index.x,(int)index.y]);
+				}
+
+				if(bs is HouseStruct){
+					foreach(GameObject x in powerStack){
+						PowerStationStruct pss = x.GetComponent<PowerStationStruct>();
+						pss.setConnection(GridSelect.toArray(x.transform.position),false);
+						pss.isConnected = false;
+					}
+				}
+
 				GridSpawn.GridAt(index).GetComponent<GridSelect>().SetToBlack();
 				tempBuildStack.Remove(grid[(int)index.x,(int)index.y]);
 				Destroy(grid[(int)index.x,(int)index.y]);
@@ -154,7 +174,7 @@ public class GameState : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(turnsPassed == 1000){
+		if(turnsPassed >= goalTurns){
 			tick = 0;
 			gameEnd = true;
 			GetComponent<SummaryScreen>().setBoolTrue();

@@ -84,7 +84,12 @@ public class SubMenu : MonoBehaviour {
 						GUI.Box(new Rect(245,25,110,90),"");
 						GUI.Label(new Rect(250,30,100,20),bs.title,customStyle);
 						GUI.Label(new Rect(250,50,100,20),"Cost: "+bs.cost);
-						GUI.Label(new Rect(250,70,100,20),"Population: "+bs.populationSupport);
+						if(bs is PowerStationStruct){
+							PowerStationStruct pss = (PowerStationStruct)bs;
+							GUI.Label(new Rect(250,70,100,20),"Power Output: "+pss.houseSupport);
+						}else{
+							GUI.Label(new Rect(250,70,100,20),"Population: "+bs.populationSupport);
+						}
 						GUI.Label(new Rect(250,90,100,20),"Pollution: "+bs.pollutionIndex);
 
 					}

@@ -9,6 +9,7 @@ public class ObjectManager : MonoBehaviour {
 	private ArrayList buildingObjects = new ArrayList();
 
 	private SubMenu buildMenu;
+	private bool options;
 	
 	void Start () {
 		foreach(Transform i in worldObjects){
@@ -57,20 +58,44 @@ public class ObjectManager : MonoBehaviour {
 					Building.deactivate();
 				}
 			} else{
-				if(GUI.Button(new Rect(25,25,100,30),"Build")){
-					buildMenu.topMenu = true;
-				}
-	
-				if(GUI.Button(new Rect(25,65,100,30),"Demolish")){
-					CollapseSubMenu();
-					Building.deactivate();
-					Building.isDemolishing = true;
+				if(options){
+					if(GUI.Button(new Rect(25,25,100,30),"Back to Game")){
+						options = false;
+					}
+
+					if(GUI.Button(new Rect(25,65,100,30),"Main Menu")){
+						Application.LoadLevel("StartUpScene");
+					}
+					if(GUI.Button (new Rect(25,105,100,30),"Quit Game")){
+						Application.Quit();
+					}
+				} else{
+					if(GUI.Button(new Rect(25,25,100,30),"Build")){
+						buildMenu.topMenu = true;
+					}
+
+					if(GUI.Button(new Rect(25,65,100,30),"Demolish")){
+						CollapseSubMenu();
+						Building.deactivate();
+						Building.isDemolishing = true;
+					}
+					if(GUI.Button (new Rect(25,105,100,30),"Options")){
+						options = true;
+					}
 				}
 			}
 	
 			if(Input.GetMouseButtonDown(1)){
 				CollapseSubMenu();
+				options = false;
 			}
+		}
+	}
+
+	void Update(){
+		if(Input.GetKeyDown("escape")){
+			Building.deactivate();
+			options = !options;
 		}
 	}
 

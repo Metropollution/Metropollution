@@ -2,11 +2,11 @@ using UnityEngine;
 using System.Collections;
 
 public class MouseZoomCameraControl : MonoBehaviour {
-	public int sensitivity = 10;
-	
+	public int sensitivity;
+
 	// Use this for initialization
 	void Start () {
-	
+		sensitivity = 25;
 	}
 	
 	// Update is called once per frame
@@ -14,21 +14,13 @@ public class MouseZoomCameraControl : MonoBehaviour {
 		if (Input.GetAxis("Mouse ScrollWheel") > 0) // forward
 		{
 			camera.orthographicSize=camera.orthographicSize-sensitivity;
-			
-			if(camera.transform.position.y>100){
-				//camera.transform.Translate(0,-sensitivity,0,Space.World);	
-			}
 		}
 		
 		if (Input.GetAxis("Mouse ScrollWheel") < 0) // back
 		{
         	camera.orthographicSize=camera.orthographicSize+sensitivity;
-			
-			if(camera.transform.position.y<280){
-				//camera.transform.Translate(0,sensitivity,0,Space.World);	
-			}
 		}
 		
-		camera.orthographicSize = Mathf.Clamp(camera.orthographicSize, 100, 280 );
+		camera.orthographicSize = Mathf.Clamp(camera.orthographicSize, 100, 900 );
 	}
 }

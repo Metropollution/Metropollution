@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class PowerStationStruct : BuildingStruct {
-	//public int houseSupport;
+	public int houseSupport;
 	
 	public override bool Build(Vector2 coord) {
 		if(GameState.Instance.PlaceBuilding(this, coord)){
@@ -12,6 +12,8 @@ public class PowerStationStruct : BuildingStruct {
 			bs.isConnected = true;
 			setConnection(coord, bs.isConnected);
 
+			GameState.Instance.powerOutput += houseSupport;
+			print (GameState.Instance.powerOutput);
 			return true;
 		} else{
 			return false;	
@@ -19,6 +21,7 @@ public class PowerStationStruct : BuildingStruct {
 	}
 	
 	protected override void SpecificDemolish() {
+		GameState.Instance.powerOutput -= houseSupport;
 		setConnection(GridSelect.toArray(transform.position), false);
 	}
 	
@@ -45,7 +48,7 @@ public class PowerStationStruct : BuildingStruct {
 				neighbour.GetComponent<BuildingStruct>().isConnected = conn;
 			}
 		}
-		
+
 		if(coord.y < 49){
 			neighbour = GameState.Instance.grid[(int)coord.x,(int)coord.y+1];
 			if(neighbour){
