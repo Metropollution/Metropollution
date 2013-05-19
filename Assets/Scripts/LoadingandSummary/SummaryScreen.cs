@@ -20,11 +20,7 @@ public class SummaryScreen : MonoBehaviour {
 	}
 	
 	void LoadStartScreen(){
-<<<<<<< HEAD
-		Application.LoadLevel(level);	
-=======
 		Application.LoadLevel(level);
->>>>>>> Return to Title Screen
 	}
 	
 	void OnGUI(){
@@ -67,14 +63,9 @@ public class SummaryScreen : MonoBehaviour {
 				GUILayout.Box("Economy: " + cash + "\n",customStyle);
 				GUILayout.Box("Population: " + population + "\n",customStyle);
 			GUILayout.EndArea();
-			
-<<<<<<< HEAD
-			GUILayout.BeginArea(new Rect(Screen.width/2 - 90, Screen.height/2 + 150,200,200));
-				if(GUILayout.Button("Return to Title Screen")){
-=======
+
 			GUILayout.BeginArea(new Rect(Screen.width/2 - 90,Screen.height/2 + 150, 200, 200));
 				if(GUILayout.Button ("Return to Title Screen")){
->>>>>>> Return to Title Screen
 					StartCoroutine("LoadStartScreen");
 				}
 			GUILayout.EndArea();

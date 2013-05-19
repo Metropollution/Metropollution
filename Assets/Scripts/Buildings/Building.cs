@@ -10,8 +10,8 @@ public class Building : MonoBehaviour {
 	public static bool isBuilding;
 	public static bool isDemolishing;
 
-	private int cursorSizeX = 32;  // set to width of your cursor texture
-	private int cursorSizeY = 32;  // set to height of your cursor texture
+	private int cursorSizeX = 32;
+	private int cursorSizeY = 32;
 
 	public Texture2D bulldozer;
 
@@ -27,9 +27,9 @@ public class Building : MonoBehaviour {
 		}
 
 		if(isDemolishing){
-			Screen.showCursor = false;
+			HUD.hideCursor = HUD.hideCursor || true;
 		} else{
-			Screen.showCursor = true;
+			HUD.hideCursor = HUD.hideCursor || false;
 		}
 		//Show building while placing
 		if(currentBuilding != null) {

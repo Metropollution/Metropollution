@@ -12,6 +12,8 @@ public class HUD : MonoBehaviour {
 
 	private int tempPop;
 	private int tempPoll;
+
+	public static bool hideCursor;
 	
 	private bool isPaused = true;
 	
@@ -90,5 +92,15 @@ public class HUD : MonoBehaviour {
 			GUI.Label(new Rect(Screen.width-195,Screen.height-75,170,30),"Population: "+GameState.Instance.goalPop,customStyle);
 			GUI.Label(new Rect(Screen.width-195,Screen.height-50,170,30),"Pollution: "+GameState.Instance.goalPoll,customStyle);
 		}
+	}
+
+	void LateUpdate() {
+		if(hideCursor){
+			Screen.showCursor = false;
+		} else{
+			Screen.showCursor = true;
+		}
+
+		hideCursor = false;
 	}
 }
